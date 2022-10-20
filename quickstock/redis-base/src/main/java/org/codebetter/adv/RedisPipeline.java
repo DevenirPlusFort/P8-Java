@@ -8,18 +8,19 @@ import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.Pipeline;
 
 import java.util.List;
+import java.util.Map;
 
 /***
- *
- * @File
- * @Desc
- * @Author XZH
- * @Create 2022/10/06 20:58
+ * 
+ * @File  RedisPipeline.java
+ * @Desc  
+ * @Author codebetter
+ * @Create 2022/10/19 23:03 
  *
  * @ChangeList
  * ------------------------------------------------------------------------
  * Date					Editor				   ChangeReason			
- *
+ *                 
  */
 @Component
 public class RedisPipeline {
@@ -27,10 +28,18 @@ public class RedisPipeline {
     private JedisPool jedisPool;
 
     /**
-     * 批量获取值
-     * @param keys
-     * @return
-     */
+      * 
+      * @Description   查询技术文件列表
+      * @Param keys: 键集合
+      * @return: java.util.List<java.lang.Object>
+      *
+      * @author: codebetter
+      * @create: 2022/10/19 23:00
+      * @ChangeList
+      * --------------------------------------------------------------------------
+      * Date                Editor                     ChangeReasons
+      *
+    */
     public List<Object> plGet(List<String> keys) {
         Jedis jedis = null;
         try {
@@ -47,11 +56,20 @@ public class RedisPipeline {
         }
     }
 
-    /**
-     * 批量赋值
-     * @param keys
-     * @param values
-     */
+    /*
+      * 
+      * @Description   查询技术文件列表
+      * @Param keys: 
+  * @Param values:
+      * @return: void
+      *
+      * @author: codebetter
+      * @create: 2022/10/19 23:09
+      * @ChangeList
+      * --------------------------------------------------------------------------
+      * Date                Editor                     ChangeReasons
+      *
+    */
     public void plSet(List<String> keys, List<String> values) {
         if (keys.size()!=values.size()) {
            throw new RuntimeException("key和value个数不匹配");

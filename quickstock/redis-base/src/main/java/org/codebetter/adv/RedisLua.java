@@ -6,19 +6,8 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
 import java.util.Arrays;
+import java.util.Map;
 
-/***
- *
- * @File
- * @Desc
- * @Author Happy
- * @Create 2022/10/06 22:40
- *
- * @ChangeList
- * ------------------------------------------------------------------------
- * Date					Editor				   ChangeReason			
- *
- */
 @Component
 public class RedisLua {
      public static final String RS_LUA_NS = "rlilf:";
@@ -36,7 +25,13 @@ public class RedisLua {
       @Autowired
       private JedisPool jedisPool;
 
-      public String loadScript() {
+
+    /**
+    * @Author xzh
+    *
+    *
+    */
+    public String loadScript() {
           Jedis jedis = null;
           try {
              jedis = jedisPool.getResource();
@@ -49,7 +44,12 @@ public class RedisLua {
           }
       }
 
-      public String ipLimitFlow(String ip) {
+    /**
+     * IP限值
+     * @param ip IP地址
+     * @return
+     */
+    public String ipLimitFlow(String ip) {
          Jedis jedis = null;
          try {
            jedis = jedisPool.getResource();

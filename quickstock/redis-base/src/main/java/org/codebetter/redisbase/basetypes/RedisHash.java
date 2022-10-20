@@ -7,16 +7,16 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
 /***
- *
- * @File
- * @Desc
- * @Author XZH
- * @Create 2022/09/20 12:04
+ * 
+ * @File  RedisHash.java
+ * @Desc  
+ * @Author codebetter
+ * @Create 2022/10/20 21:52
  *
  * @ChangeList
  * ------------------------------------------------------------------------
  * Date					Editor				   ChangeReason			
- *
+ *                 
  */
 @Component
 public class RedisHash {
@@ -24,7 +24,6 @@ public class RedisHash {
 
    @Autowired
    private JedisPool jedisPool;
-
 
    public String get(String key, String field) {
        Jedis jedis = null;
